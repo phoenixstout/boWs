@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://dymuaorjtdidx"]
+
+[ext_resource type="Script" path="res://Scripts/TitleScreen.gd" id="1_hcv56"]
+[ext_resource type="PackedScene" uid="uid://xblllf173rvl" path="res://player.tscn" id="2_8ktvp"]
+
+[sub_resource type="Theme" id="Theme_i0hv7"]
+default_font_size = 50
+
+[node name="TitleScreen" type="Node2D"]
+script = ExtResource("1_hcv56")
+player_scene = ExtResource("2_8ktvp")
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 43.0
+offset_top = 36.0
+offset_right = 665.0
+offset_bottom = 291.0
+theme = SubResource("Theme_i0hv7")
+text = "Start"
+
+[node name="host" type="Button" parent="."]
+offset_left = 1208.0
+offset_top = 60.0
+offset_right = 1353.0
+offset_bottom = 149.0
+text = "host"
+
+[node name="join" type="Button" parent="."]
+offset_left = 1206.0
+offset_top = 190.0
+offset_right = 1360.0
+offset_bottom = 291.0
+text = "join"
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://player.tscn")
+spawn_path = NodePath("..")
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="join" to="." method="_on_join_pressed"]

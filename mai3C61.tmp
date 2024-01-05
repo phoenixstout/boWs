@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://biddnbo3junxb"]
+
+[ext_resource type="Texture2D" uid="uid://dy6g874d55mb4" path="res://Blue.png" id="1_f2i2o"]
+[ext_resource type="Texture2D" uid="uid://dn6dfkpskg4j1" path="res://catan_tiles_3.png" id="2_sp35v"]
+[ext_resource type="Script" path="res://TileMapController.gd" id="3_v4g2l"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nqstd"]
+texture = ExtResource("2_sp35v")
+margins = Vector2i(14, 9)
+texture_region_size = Vector2i(768, 888)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_kwwy5"]
+tile_shape = 3
+tile_size = Vector2i(768, 888)
+sources/0 = SubResource("TileSetAtlasSource_nqstd")
+
+[node name="Node" type="Node"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_f2i2o")
+stretch_mode = 1
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+position = Vector2(576, 324)
+scale = Vector2(0.1, 0.1)
+tile_set = SubResource("TileSet_kwwy5")
+format = 2
+layer_0/name = "Tiles"
+layer_0/y_sort_enabled = true
+layer_0/tile_data = PackedInt32Array(-131074, 65536, 2, -131073, 65536, 2, -196608, 65536, 2, -65537, 65536, 2, -131072, 65536, 2, -131071, 65536, 2, -1, 65536, 2, -65536, 65536, 2, 0, 65536, 2, 65535, 65536, 2, 65536, 65536, 2, 131071, 65536, 2, 131070, 65536, 2, 65534, 65536, 2, -3, 65536, 2, -65538, 65536, 2, -2, 65536, 2, -65535, 65536, 2, 1, 65536, 2)
+script = ExtResource("3_v4g2l")
